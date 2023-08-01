@@ -2,3 +2,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media only screen and (max-width: 600px) {
+    .cdk-overlay-pane{
+        width: 95% !important;
+        max-width: 95vw !important;
+    }
+    app-home {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 601px) {
+    .cdk-overlay-pane{
+        width: 85% !important;
+        max-width: 90vw !important;
+    }
+}

@@ -5,6 +5,7 @@ import { TestChartComponent } from './components/test-chart/test-chart.component
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  { path: "", redirectTo: "home", pathMatch: "full"},
   { path: 'home', component: HomeComponent},
   { path: 'allProducts', component: AllProductsComponent },
   { path: 'test', component: TestChartComponent },

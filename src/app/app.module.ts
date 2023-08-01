@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule, isDevMode, Pipe } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { AllProductsComponent } from './components/all-products/all-products.com
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './components/home/home.component';
 import {MatCardModule} from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -37,7 +38,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     // TestChartComponent,
     AllProductsComponent,
     HomeComponent,
-    DialogResultComponent
+    // DialogResultComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +70,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatListModule,
     MatCardModule,
     NgFor,
+    CommonModule,
+    // Pipe,
     CanvasJSAngularChartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),

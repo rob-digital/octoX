@@ -1,11 +1,12 @@
 import { MatDialog } from '@angular/material/dialog';
 import { MyBillService } from './../../services/my-bill.service';
-import { Component } from '@angular/core';
+import { Component , Pipe} from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 import { AllProductsService } from 'src/app/services/all-products.service';
 import {FormControl, FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { DialogResultComponent } from '../dialog-result/dialog-result.component';
+import { DataBetweenComponentsService } from 'src/app/services/data-between-components.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -34,7 +35,8 @@ export class HomeComponent {
   constructor(private products: AllProductsService,
               private dateAdapter: DateAdapter<Date>,
               private bill: MyBillService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private data: DataBetweenComponentsService) {
     this.dateAdapter.setLocale('en-GB'); //dd/MM/yyyy
   }
 
@@ -60,16 +62,57 @@ EndDateChange(e: any) {
   this.EvaluateDated();
   this.CheckButtonDisable();
 }
+formatDate(date:any) {
+  var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
+  if (month.length < 2) 
+      month = '0' + month;
+  if (day.length < 2) 
+      day = '0' + day;
+
+  return [year, month, day].join('-');
+}
 EvaluateDated() {
-  console.log(JSON.stringify(this.range.value));
-  let staringDate = JSON.stringify(this.range.value.start);
-  this.startDate = staringDate.substring(1, staringDate.length - 9);
-  console.log('startDate:', this.startDate)
+  // let day = this.range.value.start?.getDate();
+  // let month = this.range.value.start?.getMonth();
+  // let year = this.range.value.start?.getFullYear();
 
-  let endindDate = JSON.stringify(this.range.value.end);
-  let newTime = '23:59';
-  this.endDate = endindDate.substring(1, staringDate.length - 14) + newTime;
+  
+  // console.log(this.formatDate(this.range.value.start));
+  // console.log((this.range.value.start?.toLocaleString("en-UK")));
+  // console.log((this.range.value.start?.getDate()));
+  // console.log((this.range.value.start?.getMonth()));
+  // console.log((this.range.value.start?.getFullYear()));
+  // console.log((this.range.value.start?.toLocaleTimeString()));
+  // console.log((this.range.value.start?.toLocaleDateString()));
+  // console.log('==========================');
+  // console.log(JSON.stringify(this.range.value.start?.toLocaleString("en-UK")));
+  // let theDate = JSON.stringify(this.range.value.start?.toLocaleString("en-US")
+  //                             .replaceAll('/', '-')
+  //                             .replaceAll(', ', 'T'));
+  // console.log('theDate1 :', theDate);
+  // theDate.replace('/', '-')
+  // console.log('theDate 2:', theDate.replaceAll('/', '-'));
+  // console.log(JSON.stringify(this.range.value.start?.toLocaleTimeString()));
+
+  let presentableStartDate = this.range.value.start?.toLocaleDateString("en-UK");
+  console.log('presentableStartDate :', presentableStartDate);
+  let presentableEndtDate = this.range.value.end?.toLocaleDateString("en-UK");
+  this.data.addPresentableStartDate(presentableStartDate);
+  this.data.addPresentableEndDate(presentableEndtDate);
+
+  let staringDate = this.formatDate(this.range.value.start);
+  console.log('staringDate :', staringDate);
+  staringDate += 'T00:00';
+  this.startDate = staringDate;
+  console.log('this.startDate :', this.startDate);
+
+  let endindDate = this.formatDate(this.range.value.end);
+  endindDate += 'T23:59';
+  this.endDate = endindDate;
   console.log('endDate:', this.endDate)
 }
 
