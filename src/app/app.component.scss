@@ -9,6 +9,7 @@
 }
 .content {
   padding: 15px;
+  background: hsl(217, 54%, 11%);;
 }
 .example-is-mobile .example-toolbar {
   position: fixed;
@@ -45,8 +46,8 @@ mat-nav-list a {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #00BAF0;
-  background: linear-gradient(to right, #f46b45, #eea849);
+  background-color: #000;
+  // background: linear-gradient(to right, #f46b45, #eea849);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 56px;
@@ -65,3 +66,4 @@ mat-nav-list a {
 //     align-items: center;
 //   }
 // }
+

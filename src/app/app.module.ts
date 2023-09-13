@@ -31,6 +31,15 @@ import { MatDialogModule} from '@angular/material/dialog';
 import {FormGroup, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DialogResultComponent } from './components/dialog-result/dialog-result.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatChipsModule} from '@angular/material/chips';
+// import {
+//   MatBottomSheet,
+//   MatBottomSheetModule,
+//   MatBottomSheetRef,
+// } from '@angular/material/bottom-sheet';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
+
+// import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -73,6 +82,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CommonModule,
     // Pipe,
     CanvasJSAngularChartsModule,
+
+    MatChipsModule,
+    // MatBottomSheet,
+    // MatBottomSheetModule,
+    // MatBottomSheetRef,
+
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

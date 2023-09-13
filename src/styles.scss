@@ -4,9 +4,13 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @media only screen and (max-width: 600px) {
-    .cdk-overlay-pane{
+  .cdk-overlay-pane{
+    width: 95% !important;
+    max-width: 95vw !important;
+  }
+  .cdk-overlay-container .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane{
         width: 95% !important;
-        max-width: 95vw !important;
+        max-width: 293px !important;
     }
     app-home {
         display: flex;
@@ -14,8 +18,61 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 @media only screen and (min-width: 601px) {
-    .cdk-overlay-pane{
+  .cdk-overlay-pane{
+    width: 85% !important;
+    max-width: 90vw !important;
+  }
+  .cdk-overlay-container .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane{
         width: 85% !important;
-        max-width: 90vw !important;
+        max-width: 321px !important;
     }
+
 }
+
+mat-form-field {
+  width: 100%;
+
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white !important;
+    border-radius: 4px !important;
+  }
+  .mdc-text-field--disabled {
+    background-color: #dfdddd !important;
+    border-radius: 4px !important;
+  }
+}
+
+.textBlack {
+  color: #000;
+}
+
+.totalAmount .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: #198f01 !important;
+  margin-top: -4px;
+
+  .mdc-evolution-chip__text-label  {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #fff;
+  }
+}
+
+.totalKW .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: #bb0f43 !important;
+  margin-top: -4px;
+
+  .mdc-evolution-chip__text-label  {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #fff;
+  }
+}
+.mat-mdc-card-content>:last-child:not(.mat-mdc-card-footer) {
+  margin-bottom: 30px !important;
+}
+label#mat-mdc-slide-toggle-1-label {
+  font-weight: 500 !important;
+}
+
+// .cdk-overlay-container .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane

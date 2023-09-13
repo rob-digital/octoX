@@ -51,6 +51,9 @@ export class HomeComponent {
       console.log('Error from Home Component (getAllProducts)', err);
     }
   });
+
+  this.data.addNewGraphName('column');
+
 }
 
 StartDateChange(e: any) {
@@ -68,9 +71,9 @@ formatDate(date:any) {
       day = '' + d.getDate(),
       year = d.getFullYear();
 
-  if (month.length < 2) 
+  if (month.length < 2)
       month = '0' + month;
-  if (day.length < 2) 
+  if (day.length < 2)
       day = '0' + day;
 
   return [year, month, day].join('-');
@@ -80,7 +83,7 @@ EvaluateDated() {
   // let month = this.range.value.start?.getMonth();
   // let year = this.range.value.start?.getFullYear();
 
-  
+
   // console.log(this.formatDate(this.range.value.start));
   // console.log((this.range.value.start?.toLocaleString("en-UK")));
   // console.log((this.range.value.start?.getDate()));

@@ -28,7 +28,7 @@ export class AppComponent implements OnDestroy {
       this.mobileQuery.addListener(this._mobileQueryListener);
     }
     findActive() {
-      
+
     }
     ngOnDestroy(): void {
       this.mobileQuery.removeListener(this._mobileQueryListener);

@@ -1,0 +1,43 @@
+// .mat-divider.divider2 {
+//   margin: -10px 0 20px 0 !important;
+// }
+.yourBill {
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+.billContent {
+  margin: 20px 0;
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0 10px;
+
+  // .totalKW {
+  //   margin-bottom: 10px;
+  // }
+  .totalKW, .totalAmount {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+  mat-dialog-actions.bottomActions {
+  justify-content: space-between;
+
+  mat-form-field {
+    width: 50%;
+  }
+}
+mat-dialog-actions.bottomActions mat-form-field .mat-mdc-form-field-infix {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+mat-slide-toggle {
+  display: block;
+  position: relative;
+  margin: 10px 0 10px 10px;
+}
+mat-dialog-actions.bottomActions {
+  margin: -20px 0 0px 0;
+}
+
